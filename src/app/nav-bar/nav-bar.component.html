@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <span>Simple Blog</span>
+    <span class="fill-space"></span>
+    <button mat-button (click)="authService.login()" *ngIf="!authService.loggedIn">Sign In</button>
+    <button mat-button (click)="authService.logout()" *ngIf="authService.loggedIn">Sign Out</button>
+    <a mat-button routerLink="/">Home</a>&nbsp;
+    <a mat-button routerLink="profile" *ngIf="authService.loggedIn">Profile</a>
+</mat-toolbar>
