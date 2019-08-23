@@ -45,4 +45,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/firebase
+/firebase/.firebase
+/firebase/node_modules
+/firebase/.firebaserc
+/firebase/package-lock.json
