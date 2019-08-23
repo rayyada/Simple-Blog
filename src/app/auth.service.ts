@@ -6,6 +6,7 @@ import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+const access_token = "access_token"
 const AUTH0_CLIENT_ID = 'exieHlNN0h6zyxgpqLQQip3XA6OvTLtx'
 const AUTH0_DOMAIN = 'dev-a50zk4cc.auth0.com'
 
@@ -13,6 +14,8 @@ const AUTH0_DOMAIN = 'dev-a50zk4cc.auth0.com'
   providedIn: 'root'
 })
 export class AuthService {  
+  
+  
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({
@@ -45,7 +48,6 @@ export class AuthService {
   // Create a local property for login status
   loggedIn: boolean = null;
 
-  constructor(private router: Router) { }
 
   // When calling, options can be passed if desired
   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
@@ -130,6 +132,18 @@ export class AuthService {
         returnTo: `${window.location.origin}`
       });
     });
+  }
+
+  constructor(private router: Router) { 
+    // listening to 'authenticated' events
+    
+    // this.auth0Client$.subscribe((client: Auth0Client) => {
+    //   // Call method to log in
+    //   client.getTokenSilently().subscribe((token: any) => {
+    //     localStorage.setItem("access_token", 
+    //   });
+    //   // localStorage.setItem("access_token", client.getTokenSilently());
+    // });
   }
 
 }

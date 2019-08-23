@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Blog List</mat-card-title>
+    <mat-card-subtitle>All your blogs in one place.</mat-card-subtitle>
+    <mat-list>
+        <div class="blog-item" *ngFor="let blog of blogs; trackBy: $index">
+        <p><small><strong>{{ blog.createdAt | date: 'short' }}</strong></small></p>
+        <p>{{ blog.description }}</p>
+        <button class="delete" mat-button mat-raised-button
+            color="accent" (click)="deleteBlog(blog)">Delete</button>
+        </div>
+        <div class="blog-item" *ngIf="blogs?.length == 0">
+        <p>You have no blog entries.</p>
+        </div>
+    </mat-list>
+</mat-card>

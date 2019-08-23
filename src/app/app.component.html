@@ -1,2 +1,12 @@
 <app-nav-bar></app-nav-bar>
+<div class="app-container">
+  <mat-card *ngIf="!authService.loggedIn">
+    <mat-card-title>Hello, visitor.</mat-card-title>
+    <mat-card-subtitle>
+      Please <a (click)="authService.login()">sign in</a> to manage your task list.
+    </mat-card-subtitle>
+  </mat-card>
+  
+  <app-blog-list *ngIf="authService.loggedIn"></app-blog-list>
+</div>
 <router-outlet></router-outlet>

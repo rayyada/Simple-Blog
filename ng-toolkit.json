@@ -1,0 +1,14 @@
+{
+  "serverless": {
+    "provider": "firebase",
+    "firebaseProject": "simple-blog-407c5",
+    "project": "simple-blog",
+    "skipInstall": false,
+    "directory": ".",
+    "clientProject": "simple-blog",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}
