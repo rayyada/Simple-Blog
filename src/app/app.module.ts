@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogFormComponent } from './blog-list/blog-form/blog-form.component';
 import { BlogListService } from './blog-list/blog-list.service';
+import { InterceptorService } from './interceptor.service';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -49,7 +50,12 @@ export function tokenGetter() {
   ],
   providers: [AuthService, 
     JwtHelperService,
-    BlogListService
+    BlogListService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

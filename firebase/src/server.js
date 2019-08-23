@@ -61,6 +61,7 @@ const jwt = require('jsonwebtoken');
 // creates Express appServer with JSON body parser
 const appServer = new express();
 appServer.use(bodyParser.json());
+// appServer.use(cors({origin: true}));
 appServer.get('/', getEntries);
 appServer.post('/', addEntry);
 // appServer.delete('/', deleteEntries);

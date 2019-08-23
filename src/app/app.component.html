@@ -6,7 +6,6 @@
       Please <a (click)="authService.login()">sign in</a> to manage your task list.
     </mat-card-subtitle>
   </mat-card>
-  
   <app-blog-list *ngIf="authService.loggedIn"></app-blog-list>
 </div>
 <router-outlet></router-outlet>

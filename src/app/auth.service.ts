@@ -58,6 +58,16 @@ export class AuthService {
     );
   }
 
+  private tokenSubject$ = new BehaviorSubject<any>(null);
+  token$ = this.tokenSubject$.asObservable();
+  
+  getTokenSilently$(options?): Observable<string> {
+  return this.auth0Client$.pipe(
+    concatMap((client: Auth0Client) => from(client.getTokenSilently(options)))
+  );
+}
+
+
   localAuthSetup() {
     // This should only be called on app initialization
     // Set up local authentication streams
