@@ -21,13 +21,8 @@ const app = functions.https.onRequest((request, response) => {
 
 //   return appServer(request, response);
 // });
-const simplePath = functions.https.onRequest(simpleServer);
 const corsPath = functions.https.onRequest(corsServer);
 const cleanPath = functions.https.onRequest((request, response) => {
-  if (!request.path) {
-    request.url = `/${request.url}`; // Prepend '/' to keep query params if any
-  }
-
   return cleanPathServer(request, response);
 });
 

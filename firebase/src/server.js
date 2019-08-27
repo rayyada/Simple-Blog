@@ -31,6 +31,8 @@ var database, collection;
 appServer.get('/', getEntries);
 appServer.post('/', addEntry);
 
+var database, collection;
+
 // exports REST API
 function addEntry(req, res) {
     // let userCollection = loadUserCollection(req);
