@@ -16,7 +16,7 @@ export class BlogListComponent implements OnInit {
 
   private loadBlogs() {
     this.blogListService.loadBlogs$().subscribe(
-      response => this.blogs = response.json(),
+      response => this.blogs = response.toString(),
       error => console.log(error)
     );
   }

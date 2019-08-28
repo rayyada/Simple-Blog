@@ -1,11 +1,8 @@
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
 const cors = require('cors');
-
-admin.initializeApp();
+const functions = require('firebase-functions');
 
 // Express Servers
-const {appServer, simpleServer, corsServer, cleanPathServer} = require('./server');
+const {appServer, cleanPathServer} = require('./server');
 
 // HTTP Cloud Functions
 const app = functions.https.onRequest((request, response) => {
@@ -21,14 +18,15 @@ const app = functions.https.onRequest((request, response) => {
 
 //   return appServer(request, response);
 // });
-const corsPath = functions.https.onRequest(corsServer);
+// const corsPath = functions.https.onRequest(corsServer);
 const cleanPath = functions.https.onRequest((request, response) => {
+  if (!request.path) {
+    request.url = `/${request.url}`; // Prepend '/' to keep query params if any
+  }
   return cleanPathServer(request, response);
 });
 
 module.exports = {
   app,
   cleanPath,
-  simplePath,
-  corsPath,
 };

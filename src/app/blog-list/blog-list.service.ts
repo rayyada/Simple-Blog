@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
   providedIn: 'root'
 })
 export class BlogListService {
-  private static SIMPLE_BLOG_ENDPOINT = 'https://us-central1-simple-blog-407c5.cloudfunctions.net/';
+  private static SIMPLE_BLOG_ENDPOINT = 'https://us-central1-simple-blog-407c5.cloudfunctions.net/app';
   constructor(
     private http: HttpClient,
     private authService: AuthService,
