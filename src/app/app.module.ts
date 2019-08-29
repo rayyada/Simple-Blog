@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtModule } from "@auth0/angular-jwt";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,10 +17,6 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogFormComponent } from './blog-list/blog-form/blog-form.component';
 import { BlogListService } from './blog-list/blog-list.service';
 import { InterceptorService } from './interceptor.service';
-
-export function tokenGetter() {
-  return localStorage.getItem("access_token");
-}
 
 @NgModule({
   declarations: [
@@ -40,13 +35,6 @@ export function tokenGetter() {
     FormsModule,
     CommonModule,
     AppMaterialModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        whitelistedDomains: ["localhost:4200"],
-        blacklistedRoutes: ["example.com/examplebadroute/"]
-      }
-    }),
   ],
   providers: [AuthService, 
     JwtHelperService,

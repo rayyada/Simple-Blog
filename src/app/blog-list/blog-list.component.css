@@ -1,10 +1,10 @@
 .blog-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #eee;
-  }
-  
-  button.delete {
-    float: right;
-    top: -60px;
-  }
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #eee;
+}
+
+button.delete {
+  float: right;
+  top: -60px;
+}

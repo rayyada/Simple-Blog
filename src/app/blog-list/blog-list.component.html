@@ -1,10 +1,12 @@
 <mat-card>
     <mat-card-title>Blog List</mat-card-title>
     <mat-card-subtitle>All your blogs in one place.</mat-card-subtitle>
+    <app-blog-form (blogAdded)="blogAddedHandler($event)"></app-blog-form>
     <mat-list>
-        <div class="blog-item" *ngFor="let blog of blogs; trackBy: $index">
-        <p><small><strong>{{ blog.createdAt | date: 'short' }}</strong></small></p>
-        <p>{{ blog.description }}</p>
+        <div class="blog-item" *ngFor="let blog of blogs; trackBy: $id">
+        <p><small><strong>{{ blog.data.createdBy }}</strong></small></p>
+        <p><small><strong>{{ blog.data.createdOn | date: 'short' }}</strong></small></p>
+        <p>{{ blog.data.contents }}</p>
         <button class="delete" mat-button mat-raised-button
             color="accent" (click)="deleteBlog(blog)">Delete</button>
         </div>

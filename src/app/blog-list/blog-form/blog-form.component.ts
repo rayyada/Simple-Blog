@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-blog-form',
@@ -7,7 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogFormComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  blogAdded = new EventEmitter();
+
+  public blog: String = null;
+
+  addBlog() {
+    let userInfo;
+    this.authService.userProfile$.subscribe((user) =>{
+      let blogEntry = {
+        createdOn: new Date(),
+        createdBy: user.nickname,
+        updatedOn: new Date(),
+        updatedBy: user.nickname,
+        contents: this.blog
+      }
+      this.blogAdded.emit(blogEntry);
+      this.blog = null;
+    })
+  }
+  constructor(private authService : AuthService) { }
 
   ngOnInit() {
   }

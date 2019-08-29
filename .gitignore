@@ -49,3 +49,6 @@ Thumbs.db
 /firebase/node_modules
 /firebase/.firebaserc
 /firebase/package-lock.json
+/firebase/firestore.rules
+/firebase/firestore.indexes.json
+/firebase/.eslintrc.json
