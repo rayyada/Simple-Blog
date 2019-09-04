@@ -45,10 +45,13 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/firebase/.firebase
-/firebase/node_modules
-/firebase/.firebaserc
-/firebase/package-lock.json
-/firebase/firestore.rules
-/firebase/firestore.indexes.json
-/firebase/.eslintrc.json
+/firebase
+/e2e
+/.temp
+# /firebase/.firebase
+# /firebase/node_modules
+# /firebase/.firebaserc
+# /firebase/package-lock.json
+# /firebase/firestore.rules
+# /firebase/firestore.indexes.json
+# /firebase/.eslintrc.json
