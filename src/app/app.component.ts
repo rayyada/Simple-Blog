@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'simple-blog';
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
   ngOnInit() {
     this.authService.localAuthSetup();
   }

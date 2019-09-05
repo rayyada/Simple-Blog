@@ -8,10 +8,14 @@ import { BlogListService } from './blog-list.service';
 })
 export class BlogListComponent implements OnInit {
   private blogs: String[];
-  constructor(private blogListService: BlogListService) { }
+  constructor(public blogListService: BlogListService) { }
 
   ngOnInit() {
     this.loadBlogs();
+  }
+
+  public getBlogs() {
+    return this.blogs;
   }
 
   private loadBlogs() {
